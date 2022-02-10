@@ -1,0 +1,48 @@
+package backjoon.run;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//10926번
+		Scanner sc = new Scanner(System.in);
+		
+		String id = sc.next();
+		System.out.println(id + "??!");
+		
+		//18108번
+
+		int by = sc.nextInt();
+		
+		int gy = 0;
+		if(by >= 1000 && by <= 3000) {
+			gy = by - 543;
+			
+		}
+		
+		System.out.println(gy);
+		
+		
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		int three = a* (b%10);
+		int four = a * (b%100/10);
+		int five = a * (b/100);
+		
+//		int three = a* (b%10);
+//		int four = a * (b%100 - b%10);
+//		int five = a * (b - b%100);
+		
+		
+		int result = a*b;
+		
+		System.out.println(three);
+		System.out.println(four);
+		System.out.println(five);
+		System.out.println(result);
+
+	}
+
+}

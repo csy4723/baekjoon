@@ -118,6 +118,68 @@ public class if문{
 		
 		
 		cookTime();
+		
+		dice();
+	}
+
+	private static void dice() {
+		Scanner sc = new Scanner(System.in);
+		
+		int arr[] = new int[3];
+		int result = 0;
+			
+		String[] s = sc.nextLine().split(" ");
+		
+		for(int i = 0; i<3; i++) {
+			arr[i] = Integer.parseInt(s[i]);
+		}
+		
+		if(arr[0] != arr[1] && arr[1]!=arr[2] ) {
+			
+			int k = Math.max(arr[0], arr[1]);// 두 수 중 큰 수를 
+			int L = Math.max(k, arr[2]); // 다음 수와 비교 하여 이 중 큰 수를 낸다.
+			
+			result = L*100;
+			
+		}else if(arr[0] == arr[1] && arr[1]==arr[2]) {
+			result = 10000+arr[0]*1000;
+		}else if(arr[0] == arr[1]) {
+			result = 1000+arr[0]*100;
+		}else if(arr[1]==arr[2]) {
+			result = 1000+arr[1]*100;
+		}else if(arr[0]==arr[2]){
+			result = 1000+arr[0]*100;
+		}
+		
+		System.out.println(result);
+		
+		////////다른 방법
+		
+//		  InputStreamReader reader = new InputStreamReader(System.in);
+//	      BufferedReader bufReader = new BufferedReader(reader);
+	//
+//	      String[] input = bufReader.readLine().split(" ");
+//	      int[] value = new int[3];
+	//
+//	      for(int i = 0; i < input.length; i++){
+//	          value[i] = Integer.parseInt(input[i]);
+//	      }
+	//
+//	      if(value[0] == value[1] && value[1] == value[2]){
+//	          System.out.println(10000 + value[0] * 1000);
+//	      }
+//	      else if(value[0] == value[1] || value[0] == value[2]){
+//	          System.out.println(1000 + value[0] * 100);
+//	      }
+//	      else if(value[1] == value[2]){
+//	          System.out.println(1000 + value[1] * 100);
+//	      }
+//	      else {
+//	          Arrays.sort(value);
+//	          System.out.println(value[2] * 100);
+//	      }
+		
+		
 	}
 
 	private static void cookTime() {

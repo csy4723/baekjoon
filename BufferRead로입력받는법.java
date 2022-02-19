@@ -17,9 +17,6 @@ public class BufferRead로입력받는법 {
 		String s = br.readLine();
 		String arr[]=s.split(" ");
 		
-		
-		
-
 		int num = Integer.parseInt(br.readLine());
 
 		for (int i = 1; i <= num; i++) {
@@ -39,5 +36,25 @@ public class BufferRead로입력받는법 {
 		bw.close();
 
 	}
+	
+	public void Read() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String a = br.readLine();
+		bw.write(a); // 바로바로 출력되는 건 아니다. 성능을 위해 버퍼에 저장했다가 flush되거나 close될때 한꺼번에 출력하기 때문이다
+		
+		
+		String b = br.readLine();
+		bw.write(b);
+		bw.flush();// close는 스트림을 닫기 때문에 중간에 출력해주고 스트림을 계속 사용하려면 flush를 사용해야 한다. 
+		
+		bw.write(br.readLine());
+		
+		bw.close();
+		br.close();
+		
+	}
+
 
 }

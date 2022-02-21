@@ -19,33 +19,44 @@ public class for문 {
 		intplus();
 
 		plustuntilnum();
-		
+
 		speedplus();
+
+		tilN();
+	}
+
+	private static void tilN() throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int num = Integer.parseInt(br.readLine());
+
+		for (int i = 1; i <= num; i++) {
+			System.out.println(i);
+		}
+
 	}
 
 	private static void speedplus() throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-	
-			int num = Integer.parseInt(br.readLine());
-			
-			for(int i = 1; i<= num; i++) {
-				StringTokenizer st = new StringTokenizer(br.readLine()," ");
-				
-				int a = Integer.parseInt(st.nextToken());
-				int b = Integer.parseInt(st.nextToken());
-				
-				bw.write((a + b)+"\n");
-				
-			}
-			
-			br.close();
-			bw.flush();
-			bw.close();
-		
-			
-			}
+
+		int num = Integer.parseInt(br.readLine());
+
+		for (int i = 1; i <= num; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+
+			bw.write((a + b) + "\n");
+
+		}
+
+		br.close();
+		bw.flush();
+		bw.close();
+
+	}
 
 	private static void plustuntilnum() {
 		int num = sc.nextInt();

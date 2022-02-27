@@ -10,7 +10,37 @@ public class 일차원배열 {
 		minmax();
 		maxindex();
 		onetonine();
+		distinct();
 
+	}
+
+	private static void distinct() {
+
+
+		Scanner sc = new Scanner(System.in);
+
+		int[] arr = new int[10];
+		int cnt = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
+			int k = 0;
+
+			for (int j = 0; j < i; j++) {
+
+				if (arr[i] % 42 == arr[j] % 42) {
+					k++;
+				}
+			
+			}
+			cnt = k>0? cnt: ++cnt; //이전에 같은 값이 없으면 1을 더하고 아니면 안 더한다. -> 
+
+		}
+
+		System.out.println(cnt);
+
+	// HashSet에 넣을 수도 있음 이건 중복값은 저장 안하니까 그리고 사이즈를 출력하면 되네
+		
 	}
 
 	private static void onetonine() {

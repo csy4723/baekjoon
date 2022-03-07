@@ -1,50 +1,30 @@
-package backjoon.run;
+package backjoon.run.함수;
 
-import java.io.IOException;
-import java.util.Scanner;
+public class 한수 {
 
-public class Main {
+	public class 함수 {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+		public void arr() {
 
-		Scanner sc = new Scanner(System.in);
+			int arr[] = new int[3];
 
-		int num = sc.nextInt();
-
-		int cnt = 0;
-
-		for (int i = 1; i <= num; i++) {
-
-			cnt += hansu(i);// 한수가 맞으면 1 반환, 아ㅣ면 0반환
+			sum(arr);
 
 		}
 
-		System.out.println(cnt);
-		
-		sc.close();
+		private long sum(int[] arr) {
 
-	}
+			long result = 0;
 
-	private static int hansu(int i) {
+			for (int i = 0; i < arr.length; i++) {
 
-		int result = 1;
+				result += arr[i];
 
-		while (i / 10 != 0) {
-
-			int rst1 = Math.abs((i % 10) - ((i / 10) % 10));
-
-			i /= 10;
-
-			int rst2 = Math.abs((i % 10) - ((i / 10) % 10));
-
-			if (rst1 != rst2) {
-
-				result = 0;
 			}
 
+			return result;
+			// TODO Auto-generated method stub
+
 		}
 
-		return result;
-	}
-
-}
+	}}

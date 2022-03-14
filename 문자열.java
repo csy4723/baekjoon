@@ -19,7 +19,73 @@ public class 문자열 {
 		blankspase();
 		blankspase_1();
 		blankspase_2();
+		reverseString();
+		RINGRING();
 
+	}
+
+	private static void RINGRING() throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String[] srr = new String[10];
+		char A = 'A';
+		
+		for(int i = 2; i<srr.length; i++) {
+			
+			if(i == 7 || i==9) {
+				srr[i] = ""+A++;
+				srr[i] += A++;
+				srr[i] += A++;
+				srr[i] += A++;
+				
+			}else {
+				srr[i] = ""+A++;
+				srr[i] += A++;
+				srr[i] += A++;
+				
+			}
+			
+		}
+		
+		String[] srr2 = br.readLine().split("");
+		int scn = 0;
+		
+		for(int i = 2; i<srr.length; i++) {
+			for(int j = 0; j<srr2.length; j++) {
+				
+				if(srr[i].contains(srr2[j])) {
+					
+					scn+=i+1;
+					
+				}
+				
+				
+				
+			}
+		}
+		
+		System.out.println(scn);
+		
+		
+	
+		
+	}
+
+	private static void reverseString() throws IOException {
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String[] arr = br.readLine().split(" ");
+		
+		StringBuilder sb1 = new StringBuilder(arr[0]);
+		StringBuilder sb2 = new StringBuilder(arr[1]);
+		
+		int num1 = Integer.parseInt(sb1.reverse().toString());
+		int num2 = Integer.parseInt(sb2.reverse().toString());
+		
+		System.out.println(Math.max(num1, num2));
+		
+		
 	}
 
 	private static void blankspase_2() throws IOException {

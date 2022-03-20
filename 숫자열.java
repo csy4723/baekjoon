@@ -8,7 +8,46 @@ public class 숫자열 {
 
 	public static void main(String[] args) throws IOException {
 		breakEvenPoing();
+		beehive();
 
+	}
+
+	private static void beehive() throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int num = Integer.parseInt(br.readLine());
+
+		int gap = 0;
+		int levelnum = 1;// 그 레벨에 들어가는 최대 숫자
+		int level = 1;
+
+		if (num == 1) {
+			System.out.println(level);// 레벨1 출력
+		}else {
+
+		level++;
+		gap += 6;// 6
+		levelnum += gap;// 7
+		// 레벨2
+
+		for (;;) {
+
+			if (num > levelnum) {
+				gap += 6;// 12
+				levelnum += gap;
+				level++;
+
+			} else if (num <= levelnum) {
+				break;
+			}
+
+		}
+
+		System.out.println(level);
+
+	}
+		
 	}
 
 	private static void breakEvenPoing() throws IOException {

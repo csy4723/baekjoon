@@ -10,7 +10,53 @@ public class 숫자열 {
 		breakEvenPoing();
 		beehive();
 		anotherBeehive();
+		findeFraction();
 
+	}
+
+	private static void findeFraction() throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int num = Integer.parseInt(br.readLine());
+
+		int level = 1; // num이 포함될 레벨
+
+		int cnt = 1; // num과 비교할 count
+		String result = "";// 출력할 결과를 담아줌
+
+		// 먼저 num이 포함될 level을 구해준다.
+		while (num > cnt) {
+
+			level++;
+			cnt += level;
+
+		}
+		cnt -= level;
+
+		for (int i = 1; i <= level; i++) {
+
+			if (level % 2 == 0) {
+				result = "" + i + "/" + (level - (i - 1));
+				cnt++;
+				if (cnt == num)
+					break;
+
+			} else {
+
+				result = "" + (level - (i - 1) + "/" + i);
+				cnt++;
+				if (cnt == num)
+					break;
+
+			}
+
+		}
+
+		System.out.println(result);
+
+	
+		
 	}
 
 	private static void anotherBeehive() throws NumberFormatException, IOException {

@@ -11,7 +11,46 @@ public class 숫자열 {
 		beehive();
 		anotherBeehive();
 		findeFraction();
+		findeFraction2();
 
+	}
+
+	private static void findeFraction2() {
+		{
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(
+							System.in));
+			int TC = Integer.parseInt(br.readLine());
+			int cnt = 1;
+			int size = 1;
+			boolean flag = true; //up
+			while(true) {
+				if(TC <= size) {
+					int up = 0;
+					int down = 0;
+					if(flag) {
+						up = cnt;
+						down = 1;
+						for(int i=size-cnt; i<TC-1; i++) {
+							up--;down++;
+						}
+						System.out.println(up+"/"+down);
+					} else {
+						up = 1;
+						down = cnt;
+						for(int i=size-cnt; i<TC-1; i++) {
+							up++;down--;
+						}
+						System.out.println(up+"/"+down);
+					}
+					break;
+				} else {
+					size += cnt+1;
+					cnt++;
+					flag = !flag;
+					
+				}}}
+		
 	}
 
 	private static void findeFraction() throws NumberFormatException, IOException {

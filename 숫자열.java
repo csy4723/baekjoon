@@ -1,8 +1,10 @@
 package backjoon.run;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class 숫자열 {
 
@@ -12,46 +14,65 @@ public class 숫자열 {
 		anotherBeehive();
 		findeFraction();
 		findeFraction2();
+		snail();
 
 	}
 
-	private static void findeFraction2() {
-		{
-			BufferedReader br = new BufferedReader(
-					new InputStreamReader(
-							System.in));
-			int TC = Integer.parseInt(br.readLine());
-			int cnt = 1;
+	private static void snail() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		String[] arr = br.readLine().split(" ");
+		double a = Integer.parseInt(arr[0]);
+		double b = Integer.parseInt(arr[1]);
+		double v = Integer.parseInt(arr[2]);
+		double day = 0;// 달팽이가 정상에 올라간날
+		//시간초과가 있어서 수학식으로 푸렁야 하낟. 
+		
+		day = (v-b)/(a-b);
+		
+		bw.write(String.valueOf((int)(Math.ceil(day))));
+		bw.close();
+		
+	// TODO Auto-generated method stub
+		
+	}
+
+	private static void findeFraction2() throws NumberFormatException, IOException {
+		
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			int TC = Integer.parseInt(br.readLine());//몇번재 분수 입력
+			int cnt = 1;// 몇번째 분수이기 세기위한 cnt
 			int size = 1;
 			boolean flag = true; //up
 			while(true) {
-				if(TC <= size) {
-					int up = 0;
+				if(TC <= size) {//입력된 분수가 1이거나 1보다 작을 때 
+					int up = 0; 
 					int down = 0;
-					if(flag) {
-						up = cnt;
-						down = 1;
+					if(flag) {//만약 flag가 true면 
+						up = cnt;//분수 윗자리. up = 1
+						down = 1;//분수 아랫자리 down은 1
 						for(int i=size-cnt; i<TC-1; i++) {
 							up--;down++;
 						}
 						System.out.println(up+"/"+down);
 					} else {
 						up = 1;
-						down = cnt;
+						down = cnt;//cnt = 2
 						for(int i=size-cnt; i<TC-1; i++) {
 							up++;down--;
 						}
 						System.out.println(up+"/"+down);
 					}
 					break;
-				} else {
-					size += cnt+1;
-					cnt++;
-					flag = !flag;
+				} else {//입력된 분수가 1보다 클때 
+					size += cnt+1;//size는 계속 1씩 커지기 때문에 언젠가는 if문을 타게 된다. 
+					cnt++;//
+					flag = !flag;//
 					
 				}}}
 		
-	}
+	
 
 	private static void findeFraction() throws NumberFormatException, IOException {
 

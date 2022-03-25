@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class 숫자열 {
 
@@ -15,7 +16,29 @@ public class 숫자열 {
 		findeFraction();
 		findeFraction2();
 		snail();
+		snail_2();
 
+	}
+
+	private static void snail_2() throws IOException {
+
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(bf.readLine());
+
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        int V = Integer.parseInt(st.nextToken());
+
+        int day =1;
+        if(A < V) {
+          V -= A;
+          day +=  V / (A-B);
+          if (V % (A-B) != 0) {
+              day++;
+          }
+        }
+        System.out.println(day);
+		
 	}
 
 	private static void snail() throws IOException {

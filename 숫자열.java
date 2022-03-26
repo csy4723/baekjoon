@@ -17,7 +17,40 @@ public class 숫자열 {
 		findeFraction2();
 		snail();
 		snail_2();
+		hotel();
 
+	}
+
+	private static void hotel() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		// H층의 W방 갯수, N번째 손님
+
+		int testNum = Integer.parseInt(br.readLine());
+
+		for (int i = 1; i <= testNum; i++) {
+
+			String[] arr = br.readLine().split(" ");
+			int H = Integer.parseInt(arr[0]);
+			int W = Integer.parseInt(arr[1]);
+			int N = Integer.parseInt(arr[2]);
+
+			int w = (int) Math.ceil((double) N / H);
+			int h = N - H * (w - 1);
+
+			if (w < 10) {
+				bw.write("" + h + "0" + w+"\n");
+			} else {
+				bw.write("" + h + w+"\n");
+			}
+
+		}
+
+		bw.close();
+
+		// TODO Auto-generated method stub
+		
 	}
 
 	private static void snail_2() throws IOException {

@@ -18,7 +18,53 @@ public class 숫자열 {
 		snail();
 		snail_2();
 		hotel();
+		apartment();
 
+	}
+
+	private static void apartment() throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int[][] apt = new int[15][15];
+
+		for (int i = 0; i < apt.length; i++) { // 기본값 세팅
+			apt[0][i] = i; // 0층 i호
+			apt[i][1] = 1;// i층 1호를 1로 세팅
+		}
+		
+		for(int i = 1; i<apt.length; i++) {//층 1층부터 시작
+			for(int j = 2; j<apt[i].length; j++) {//호  2호부터 시작
+				
+				//i-1층의 1~j호까지의 합을 구해야 한다. 
+				// i층 j-1 호는 i-1층의 1~j-1호까지의 합이다. 
+				// 그러니 i층 j-1호와  i-1층 j호의 합 = i-1층 1~j 호까지의 합이다. 
+				
+				apt[i][j] =apt[i][j-1] + apt[i-1][j]; 
+				
+			}
+		}
+		//아파트 층을 다 채운다.
+		
+
+		int tcase = Integer.parseInt(br.readLine());
+		
+
+		for (int i = 1; i <= tcase; i++) {
+			
+			int k = Integer.parseInt(br.readLine());
+			int n = Integer.parseInt(br.readLine());
+			
+			bw.write(String.valueOf(apt[k][n]));
+			bw.newLine();
+			
+		}
+		
+		bw.close();
+
+	
+		
 	}
 
 	private static void hotel() throws IOException {

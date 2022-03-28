@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class 숫자열 {
@@ -19,8 +20,34 @@ public class 숫자열 {
 		snail_2();
 		hotel();
 		apartment();
+		sugar();
 
 	}
+
+	private static void sugar() {
+		
+		    
+				Scanner in = new Scanner(System.in);
+		        
+				int N = in.nextInt();
+				
+				
+				if (N == 4 || N == 7) {
+					System.out.println(-1);
+				}
+				else if (N % 5 == 0) {
+					System.out.println(N / 5);
+				}
+				else if (N % 5 == 1 || N % 5 == 3) {
+					System.out.println((N / 5) + 1);
+				}
+				else if (N % 5 == 2 || N % 5 == 4) {
+					System.out.println((N / 5) + 2);
+				}
+			}
+		
+		
+	
 
 	private static void apartment() throws NumberFormatException, IOException {
 
